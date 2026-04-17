@@ -22,6 +22,11 @@ clusterGroup:
         operatorGroup: true
         targetNamespaces:
 
+  indexImages:
+    altramen:
+      name: nnevin-odf-multicluster-orchestrator-catalog
+      image: quay.io/nnevin/odf-multicluster-orchestrator-catalog:idmap
+
   subscriptions:
     openshift-virtualization:
       name: kubevirt-hyperconverged
@@ -105,6 +110,9 @@ clusterGroup:
       project: resilient
       chart: openshift-virtualization-instance
       chartVersion: 0.1.*
+      overrides:
+        - name: cnv.debug.useEmulation
+          value: "true"
 
     odf:
       name: odf

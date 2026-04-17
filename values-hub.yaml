@@ -14,6 +14,13 @@ clusterGroup:
     - policies
     - aap-config
     - ansible-automation-platform
+    - s4
+
+  indexImages:
+    altramen:
+      name: nnevin-odf-multicluster-orchestrator-catalog
+      image: quay.io/nnevin/odf-multicluster-orchestrator-catalog:idmap
+
   subscriptions:
     aap-operator:
       name: ansible-automation-platform-operator
@@ -27,6 +34,7 @@ clusterGroup:
 
     odf-multicluster-orchestrator:
       name: odf-multicluster-orchestrator
+      source: nnevin-odf-multicluster-orchestrator-catalog
       namespace: openshift-operators
 
     openshift-data-foundation:
@@ -177,6 +185,19 @@ clusterGroup:
       chartVersion: 0.2.*
       extraValueFiles:
         - '$patternref/overrides/values-odf-chart.yaml'
+
+    s4:
+      name: s4
+      namespace: s4
+      project: hub
+      chartVersion: main
+      repoURL: https://github.com/rh-aiservices-bu/s4.git
+      path: 'charts/s4/'
+      extraValueFiles:
+        - '$patternref/overrides/values-s4-chart.yaml'
+      overrides:
+        - name: ingress.s3Api.hosts[0].host
+          value: 's4-s3.apps.{{ $.Values.global.hubClusterDomain }}'
 
   imperative:
     verbosity: "-vvv"
