@@ -3,7 +3,49 @@ storageSystem:
   deploy: true
   inventory:
     nodeJobLabelSelector: 'node-role.kubernetes.io/worker=,!submariner.io/gateway,!node-role.kubernetes.io/infra'
-    useSpecificNodes: false
-
+    useSpecificNodes: true
+    nodes:
+      - hub-master-0
 objectStorage:
   enable: true
+  dataPool:
+    replicas: 1
+    failureDomain: osd
+  metadataPool:
+    failureDomain: osd
+  gateway:
+    instances: 1
+  resources:
+    requests:
+      cpu: "500m"
+      memory: 2Gi
+    limits:
+      cpu: "1"
+      memory: 4Gi
+odf:
+  mon:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  mds:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  mgr:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  noobaacore:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  noobaadb:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  osd:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+    pvc:
+      storage: 190Gi
