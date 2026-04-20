@@ -37,9 +37,9 @@ clusterGroup:
       source: nnevin-odf-multicluster-orchestrator-catalog
       namespace: openshift-operators
 
-    openshift-data-foundation:
-      name: odf-operator
-      namespace: openshift-storage
+#    openshift-data-foundation:
+#      name: odf-operator
+#      namespace: openshift-storage
 
   argoCD:
     resourceTrackingMethod: annotation
@@ -177,14 +177,14 @@ clusterGroup:
       chart: golang-external-secrets
       chartVersion: 0.2.*
 
-    odf:
-      name: odf
-      namespace: openshift-storage
-      project: opp
-      chart: openshift-data-foundations
-      chartVersion: 0.2.*
-      extraValueFiles:
-        - '$patternref/overrides/values-odf-chart.yaml'
+#    odf:
+#      name: odf
+#      namespace: openshift-storage
+#      project: opp
+#      chart: openshift-data-foundations
+#      chartVersion: 0.2.*
+#      extraValueFiles:
+#        - '$patternref/overrides/values-odf-chart.yaml'
 
     s4:
       name: s4
