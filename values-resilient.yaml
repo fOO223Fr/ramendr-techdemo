@@ -110,9 +110,6 @@ clusterGroup:
       project: resilient
       chart: openshift-virtualization-instance
       chartVersion: 0.1.*
-      overrides:
-        - name: cnv.debug.useEmulation
-          value: "true"
 
     odf:
       name: odf
