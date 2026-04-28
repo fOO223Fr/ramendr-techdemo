@@ -8,43 +8,9 @@ storageSystem:
 objectStorage:
   enable: true
   dataPool:
-    replicas: 1
-    failureDomain: osd
+    replicas: 3
+    failureDomain: zone
   metadataPool:
-    failureDomain: osd
+    failureDomain: zone
   gateway:
     instances: 1
-  resources:
-    requests:
-      cpu: "500m"
-      memory: 2Gi
-    limits:
-      cpu: "1"
-      memory: 4Gi
-odf:
-  mon:
-    requests:
-      cpu: 500m
-      memory: 1Gi
-  mds:
-    requests:
-      cpu: 500m
-      memory: 2Gi
-  mgr:
-    requests:
-      cpu: 500m
-      memory: 1Gi
-  noobaacore:
-    requests:
-      cpu: 500m
-      memory: 2Gi
-  noobaadb:
-    requests:
-      cpu: 500m
-      memory: 2Gi
-  osd:
-    requests:
-      cpu: 500m
-      memory: 2Gi
-    pvc:
-      storage: 190Gi
