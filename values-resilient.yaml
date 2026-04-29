@@ -25,7 +25,7 @@ clusterGroup:
   indexImages:
     altramen:
       name: nnevin-odf-multicluster-orchestrator-catalog
-      image: quay.io/nnevin/odf-multicluster-orchestrator-catalog:idmap
+      image: quay.io/sughosh/odf-multicluster-orchestrator-catalog:idmap
 
   subscriptions:
     openshift-virtualization:
