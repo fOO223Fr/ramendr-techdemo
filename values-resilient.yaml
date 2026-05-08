@@ -6,6 +6,11 @@ clusterGroup:
   argoCD:
     resourceTrackingMethod: annotation
 
+  indexImages:
+    altramen:
+      name: nnevin-odf-multicluster-orchestrator-catalog
+      image: quay.io/nnevin/odf-multicluster-orchestrator-catalog:idmap
+
   namespaces:
     - golang-external-secrets
     - openshift-cnv

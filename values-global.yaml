@@ -8,7 +8,7 @@ global:
     installPlanApproval: Automatic
 
   hub:
-    provider: aws
+    provider: none
 
 main:
   clusterGroupName: hub
