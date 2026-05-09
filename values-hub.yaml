@@ -12,19 +12,12 @@ clusterGroup:
     - openshift-dr-ops
     - openshift-storage
     - policies
-    - aap-config
-    - ansible-automation-platform
   indexImages:
     altramen:
       name: nnevin-odf-multicluster-orchestrator-catalog
       image: quay.io/nnevin/odf-multicluster-orchestrator-catalog:idmap
 
   subscriptions:
-    aap-operator:
-      name: ansible-automation-platform-operator
-      namespace: ansible-automation-platform
-      channel: stable-2.6
-
     acm:
       name: advanced-cluster-management
       namespace: open-cluster-management
@@ -66,22 +59,6 @@ clusterGroup:
   #   - '/overrides/values-{{ $.Values.global.hubClusterDomain }}.yaml'
   #   - '/overrides/values-{{ $.Values.global.localClusterDomain }}.yaml'
   applications:
-    aap:
-      name: ansible-automation-platform
-      namespace: ansible-automation-platform
-      project: hub
-      chart: ansible-automation-platform-instance
-      chartVersion: 0.1.*
-
-    aap-config:
-      name: aap-config
-      namespace: aap-config
-      project: hub
-      chart: aap-config
-      chartVersion: 0.2.*
-      extraValueFiles:
-        - $patternref/overrides/values-aap-config-rdr.yaml
-
     acm:
       name: acm
       namespace: open-cluster-management
