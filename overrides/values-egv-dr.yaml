@@ -10,3 +10,20 @@ boutique:
 redis:
   external:
     enabled: false
+
+regionalDR:
+  - name: resilient
+    globalnetEnabled: false
+    clusters:
+      primary:
+        name: ocp-primary
+        clusterGroup: resilient
+      secondary:
+        name: ocp-secondary
+        clusterGroup: resilient
+    drpolicies:
+      - interval: 2m
+
+drpc:
+  drPolicyRef:
+    name: 2m-novm
